@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>امیر بات | دستیار هوش مصنوعی</title>
+
+  <meta
+    name="description"
+    content="امیر بات؛ دستیار هوش مصنوعی فارسی برای گفتگو و ساخت تصویر"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #050816;
+      --card: rgba(16, 24, 48, .65);
+      --card2: rgba(255, 255, 255, .055);
+      --border: rgba(255, 255, 255, .1);
+      --text: #f7f8ff;
+      --muted: #9ca8c7;
+      --primary: #7c5cff;
+      --secondary: #00d4ff;
+      --green: #22c55e;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    button,
+    textarea {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* BACKGROUND */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -10;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(124, 92, 255, .18), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(0, 212, 255, .13), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(124, 92, 255, .1), transparent 35%),
+        #050816;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      opacity: .16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .orb.one {
+      width: 260px;
+      height: 260px;
+      background: rgba(124, 92, 255, .2);
+      top: 5%;
+      left: 5%;
+    }
+
+    .orb.two {
+      width: 220px;
+      height: 220px;
+      background: rgba(0, 212, 255, .15);
+      right: 5%;
+      top: 25%;
+      animation-delay: -4s;
+    }
+
+    .orb.three {
+      width: 180px;
+      height: 180px;
+      background: rgba(124, 92, 255, .16);
+      left: 45%;
+      bottom: 5%;
+      animation-delay: -8s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate3d(30px, -25px, 0) scale(1.08);
+      }
+    }
+
+    /* LANDING */
+
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      margin: 20px auto;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      background: rgba(8, 13, 30, .58);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 15px;
+      z-index: 20;
+      box-shadow: 0 15px 50px rgba(0,0,0,.2);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 30px rgba(124,92,255,.3);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      width: min(1100px, calc(100% - 32px));
+      margin: auto;
+      text-align: center;
+      padding: 80px 0 70px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border: 1px solid rgba(124,92,255,.3);
+      background: rgba(124,92,255,.08);
+      border-radius: 999px;
+      color: #c9c0ff;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #22c55e;
+    }
+
+    .hero h1 {
+      font-size: clamp(60px, 12vw, 150px);
+      line-height: .95;
+      font-weight: 900;
+      letter-spacing: -5px;
+      background: linear-gradient(
+        100deg,
+        #ffffff,
+        #a99aff,
+        #00d4ff,
+        #ffffff
+      );
+      background-size: 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientMove 7s ease infinite;
+      text-shadow: 0 0 80px rgba(124,92,255,.12);
+    }
+
+    @keyframes gradientMove {
+      0%, 100% {
+        background-position: 0%;
+      }
+
+      50% {
+        background-position: 100%;
+      }
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 35px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 2;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      padding: 15px 25px;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), #5741e8);
+      box-shadow: 0 15px 35px rgba(124,92,255,.25);
+    }
+
+    .btn-secondary {
+      color: white;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+    }
+
+    /* FEATURES */
+
+    .features {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto 100px;
+    }
+
+    .features-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 35px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      transition: .3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-7px);
+      border-color: rgba(124,92,255,.4);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(124,92,255,.12);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* CHAT */
+
+    .chat-page {
+      display: none;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(5,8,22,.72);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .chat-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .chat-brand-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .status {
+      color: #75e6a1;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+    }
+
+    .chat-main {
+      width: min(900px, calc(100% - 28px));
+      margin: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 35px 0 20px;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: 25px;
+    }
+
+    .message {
+      display: flex;
+      margin: 16px 0;
+      animation: messageIn .3s ease;
+    }
+
+    @keyframes messageIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message.user {
+      justify-content: flex-start;
+    }
+
+    .message.assistant {
+      justify-content: flex-end;
+    }
+
+    .bubble {
+      max-width: 78%;
+      padding: 15px 18px;
+      line-height: 1.9;
+      border-radius: 20px;
+      white-space: pre-wrap;
+    }
+
+    .user .bubble {
+      background: linear-gradient(135deg, #6e50ed, #523bc9);
+      border-bottom-left-radius: 5px;
+    }
+
+    .assistant .bubble {
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      border-bottom-right-radius: 5px;
+    }
+
+    .bubble img {
+      max-width: 100%;
+      border-radius: 14px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    .welcome {
+      text-align: center;
+      margin: auto;
+      padding: 50px 10px;
+    }
+
+    .welcome-icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 25px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-size: 35px;
+      box-shadow: 0 20px 50px rgba(124,92,255,.25);
+    }
+
+    .welcome h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .welcome p {
+      color: var(--muted);
+    }
+
+    .suggestions {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .suggestion {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: #dce2f6;
+      padding: 9px 14px;
+      border-radius: 999px;
+      transition: .2s;
+    }
+
+    .suggestion:hover {
+      background: rgba(124,92,255,.13);
+      border-color: rgba(124,92,255,.35);
+    }
+
+    /* INPUT */
+
+    .input-area {
+      padding-top: 12px;
+    }
+
+    .mode-row {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .mode-switch {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+    }
+
+    .mode {
+      border: 0;
+      color: var(--muted);
+      background: transparent;
+      padding: 7px 13px;
+      border-radius: 9px;
+    }
+
+    .mode.active {
+      color: white;
+      background: rgba(124,92,255,.25);
+    }
+
+    .composer {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      background: rgba(12,18,38,.82);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+
+    textarea {
+      flex: 1;
+      resize: none;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: white;
+      font-size: 15px;
+      line-height: 1.8;
+      min-height: 45px;
+      max-height: 150px;
+      padding: 9px;
+    }
+
+    textarea::placeholder {
+      color: #697491;
+    }
+
+    .send {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      border: 0;
+      border-radius: 15px;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-size: 19px;
+    }
+
+    .send:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .typing {
+      display: inline-flex;
+      gap: 5px;
+      padding: 5px 2px;
+    }
+
+    .typing span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #9da7c1;
+      animation: typing .8s infinite alternate;
+    }
+
+    .typing span:nth-child(2) {
+      animation-delay: .2s;
+    }
+
+    .typing span:nth-child(3) {
+      animation-delay: .4s;
+    }
+
+    @keyframes typing {
+      to {
+        transform: translateY(-5px);
+        opacity: .4;
+      }
+    }
+
+    .image-result {
+      max-width: 100%;
+      border-radius: 16px;
+      display: block;
+      margin-top: 5px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.25);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bubble {
+        max-width: 90%;
+      }
+
+      .chat-main {
+        width: min(100% - 16px, 900px);
+      }
+
+      .welcome h2 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="background">
+  <div class="grid"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+
+<!-- ================= LANDING ================= -->
+
+<section class="landing" id="landing">
+
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-icon">✦</div>
+      <span>امیر بات</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#features">قابلیت‌ها</a>
+      <a href="#about">درباره</a>
+    </div>
+
+    <button class="btn btn-primary" onclick="openChat()">
+      شروع گفتگو
+    </button>
+  </nav>
+
+  <div class="hero">
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      هوش مصنوعی آنلاین
+    </div>
+
+    <h1>امیر بات</h1>
+
+    <p>
+      دستیار هوش مصنوعی هوشمند و دوستانه برای گفتگو،
+      یادگیری، ایده‌پردازی و ساخت تصاویر با هوش مصنوعی.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="btn btn-primary" onclick="openChat()">
+        🚀 شروع کار با امیر بات
+      </button>
+
+      <a
+        class="btn btn-secondary"
+        href="#features"
+        style="text-decoration:none;"
+      >
+        مشاهده قابلیت‌ها
+      </a>
+    </div>
+
+  </div>
+
+  <section class="features" id="features">
+
+    <h2 class="features-title">قابلیت‌های امیر بات</h2>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h3>گفتگوی هوشمند</h3>
+        <p>
+          با امیر بات درباره موضوعات مختلف گفتگو کن و پاسخ‌های
+          هوشمند و طبیعی دریافت کن.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🎨</div>
+        <h3>ساخت تصویر</h3>
+        <p>
+          ایده خودت را بنویس و با هوش مصنوعی تصویر تولید کن.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🌍</div>
+        <h3>چندزبانه</h3>
+        <p>
+          فارسی، انگلیسی و زبان‌های مختلف را پشتیبانی می‌کند.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    class="features"
+    id="about"
+    style="text-align:center;"
+  >
+    <h2 class="features-title">امیر بات</h2>
+    <p style="color:var(--muted);line-height:2;">
+      یک رابط مدرن برای استفاده از هوش مصنوعی.
+    </p>
+  </section>
+
+</section>
+
+
+<!-- ================= CHAT ================= -->
+
+<section class="chat-page" id="chatPage">
+
+  <header class="chat-header">
+
+    <div class="chat-brand">
+
+      <div class="chat-brand-icon">
+        ✦
+      </div>
+
+      <div>
+        <div>امیر بات</div>
+        <div class="status">آنلاین</div>
+      </div>
+
+    </div>
+
+    <button
+      class="btn btn-secondary"
+      onclick="closeChat()"
+      style="padding:9px 14px;"
+    >
+      صفحه اصلی
+    </button>
+
+  </header>
+
+
+  <main class="chat-main">
+
+    <div class="messages" id="messages">
+
+      <div class="welcome" id="welcome">
+
+        <div class="welcome-icon">
+          ✦
+        </div>
+
+        <h2>سلام! من امیر بات هستم 👋</h2>
+
+        <p>
+          چه کاری می‌تونم برات انجام بدم؟
+        </p>
+
+        <div class="suggestions">
+
+          <button
+            class="suggestion"
+            onclick="useSuggestion('برای من یک داستان کوتاه بنویس')"
+          >
+            ✍️ داستان بنویس
+          </button>
+
+          <button
+            class="suggestion"
+            onclick="useSuggestion('پایتون را از صفر به من آموزش بده')"
+          >
+            🧠 آموزش بده
+          </button>
+
+          <button
+            class="suggestion"
+            onclick="useSuggestion('برای یک اپلیکیشن مدرن یک ایده بده')"
+          >
+            💡 ایده بده
+          </button>
+
+          <button
+            class="suggestion"
+            onclick="setMode('image')"
+          >
+            🎨 ساخت تصویر
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="input-area">
+
+      <div class="mode-row">
+
+        <div class="mode-switch">
+
+          <button
+            class="mode active"
+            id="chatMode"
+            onclick="setMode('chat')"
+          >
+            💬 چت
+          </button>
+
+          <button
+            class="mode"
+            id="imageMode"
+            onclick="setMode('image')"
+          >
+            🎨 تصویر
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="composer">
+
+        <textarea
+          id="input"
+          rows="1"
+          placeholder="پیامت را برای امیر بات بنویس..."
+          onkeydown="handleKey(event)"
+        ></textarea>
+
+        <button
+          class="send"
+          id="sendButton"
+          onclick="sendMessage()"
+        >
+          ➤
+        </button>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</section>
+
+
+<script>
+
+  /* =========================
+     STATE
+  ========================= */
+
+  let mode = "chat";
+  let loading = false;
+
+  let messages = [];
+
+
+  /* =========================
+     ELEMENTS
+  ========================= */
+
+  const landing = document.getElementById("landing");
+  const chatPage = document.getElementById("chatPage");
+  const messagesBox = document.getElementById("messages");
+  const input = document.getElementById("input");
+  const sendButton = document.getElementById("sendButton");
+
+
+  /* =========================
+     OPEN / CLOSE CHAT
+  ========================= */
+
+  function openChat() {
+
+    landing.style.display = "none";
+    chatPage.style.display = "flex";
+
+    input.focus();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  function closeChat() {
+
+    chatPage.style.display = "none";
+    landing.style.display = "flex";
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
+  /* =========================
+     MODE
+  ========================= */
+
+  function setMode(newMode) {
+
+    mode = newMode;
+
+    document
+      .getElementById("chatMode")
+      .classList.toggle("active", mode === "chat");
+
+    document
+      .getElementById("imageMode")
+      .classList.toggle("active", mode === "image");
+
+    if (mode === "image") {
+
+      input.placeholder =
+        "توضیح تصویری که می‌خواهی بسازم...";
+
+    } else {
+
+      input.placeholder =
+        "پیامت را برای امیر بات بنویس...";
+    }
+
+    input.focus();
+  }
+
+
+  /* =========================
+     SUGGESTION
+  ========================= */
+
+  function useSuggestion(text) {
+
+    setMode("chat");
+
+    input.value = text;
+
+    input.focus();
+
+    autoResize();
+
+  }
+
+
+  /* =========================
+     KEYBOARD
+  ========================= */
+
+  function handleKey(event) {
+
+    if (
+      event.key === "Enter" &&
+      !event.shiftKey
+    ) {
+
+      event.preventDefault();
+
+      sendMessage();
+    }
+  }
+
+
+  /* =========================
+     AUTO RESIZE
+  ========================= */
+
+  input.addEventListener("input", autoResize);
+
+  function autoResize() {
+
+    input.style.height = "auto";
+
+    input.style.height =
+      Math.min(input.scrollHeight, 150) + "px";
+  }
+
+
+  /* =========================
+     ADD MESSAGE
+  ========================= */
+
+  function addMessage(
+    role,
+    content,
+    image = null
+  ) {
+
+    const wrapper =
+      document.createElement("div");
+
+    wrapper.className =
+      "message " +
+      (role === "user"
+        ? "user"
+        : "assistant");
+
+    const bubble =
+      document.createElement("div");
+
+    bubble.className = "bubble";
+
+    if (content) {
+
+      const text =
+        document.createElement("div");
+
+      text.textContent = content;
+
+      bubble.appendChild(text);
+    }
+
+    if (image) {
+
+      const img =
+        document.createElement("img");
+
+      img.src = image;
+
+      img.className = "image-result";
+
+      bubble.appendChild(img);
+    }
+
+    wrapper.appendChild(bubble);
+
+    messagesBox.appendChild(wrapper);
+
+    messagesBox.scrollTop =
+      messagesBox.scrollHeight;
+
+    return bubble;
+  }
+
+
+  /* =========================
+     TYPING
+  ========================= */
+
+  function showTyping() {
+
+    const wrapper =
+      document.createElement("div");
+
+    wrapper.className =
+      "message assistant";
+
+    wrapper.id = "typingMessage";
+
+    wrapper.innerHTML = `
+      <div class="bubble">
+        <div class="typing">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    `;
+
+    messagesBox.appendChild(wrapper);
+
+    messagesBox.scrollTop =
+      messagesBox.scrollHeight;
+  }
+
+
+  function removeTyping() {
+
+    const typing =
+      document.getElementById("typingMessage");
+
+    if (typing) {
+      typing.remove();
+    }
+  }
+
+
+  /* =========================
+     SEND
+  ========================= */
+
+  async function sendMessage() {
+
+    if (loading) return;
+
+    const text =
+      input.value.trim();
+
+    if (!text) return;
+
+    const welcome =
+      document.getElementById("welcome");
+
+    if (welcome) {
+      welcome.remove();
+    }
+
+    input.value = "";
+
+    autoResize();
+
+    addMessage(
+      "user",
+      text
+    );
+
+    loading = true;
+    sendButton.disabled = true;
+
+    if (mode === "image") {
+
+      await generateImage(text);
+
+    } else {
+
+      await sendChat(text);
+    }
+
+    loading = false;
+    sendButton.disabled = false;
+
+    input.focus();
+  }
+
+
+  /* =========================
+     CHAT API
+  ========================= */
+
+  async function sendChat(text) {
+
+    messages.push({
+      role: "user",
+      content: text
+    });
+
+    showTyping();
+
+    try {
+
+      const response =
+        await fetch("/api/chat", {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            messages: messages
+          })
+
+        });
+
+
+      const data =
+        await response.json();
+
+
+      removeTyping();
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          data.error ||
+          "خطا در دریافت پاسخ"
+        );
+      }
+
+
+      const reply =
+        data.reply ||
+        "پاسخی دریافت نشد.";
+
+
+      addMessage(
+        "assistant",
+        reply
+      );
+
+
+      /* مهم:
+         پاسخ دستیار را هم
+         داخل تاریخچه ذخیره می‌کنیم
+      */
+
+      messages.push({
+        role: "assistant",
+        content: reply
+      });
+
+
+    } catch (error) {
+
+      removeTyping();
+
+      addMessage(
+        "assistant",
+        "❌ متأسفانه مشکلی در اتصال به هوش مصنوعی پیش آمد."
+      );
+
+      console.error(error);
+    }
+  }
+
+
+  /* =========================
+     IMAGE API
+  ========================= */
+
+  async function generateImage(prompt) {
+
+    showTyping();
+
+    try {
+
+      const response =
+        await fetch("/api/image", {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            prompt: prompt
+          })
+
+        });
+
+
+      const data =
+        await response.json();
+
+
+      removeTyping();
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          data.error ||
+          "خطا در ساخت تصویر"
+        );
+      }
+
+
+      if (!data.image) {
+
+        throw new Error(
+          "تصویر دریافت نشد"
+        );
+      }
+
+
+      addMessage(
+        "assistant",
+        "تصویرت آماده شد ✨",
+        data.image
+      );
+
+
+    } catch (error) {
+
+      removeTyping();
+
+      addMessage(
+        "assistant",
+        "❌ ساخت تصویر انجام نشد. تنظیمات API را بررسی کن."
+      );
+
+      console.error(error);
+    }
+  }
+
+</script>
+
+</body>
+</html>
