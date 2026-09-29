@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="امیر بات؛ دستیار هوش مصنوعی فارسی برای گفتگو و ساخت تصویر"
+    content="امیر بات؛ دستیار هوش مصنوعی فارسی برای گفتگو"
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +29,7 @@
     :root {
       --bg: #050816;
       --card: rgba(16, 24, 48, .65);
-      --card2: rgba(255, 255, 255, .055);
-      --border: rgba(255, 255, 255, .1);
+      --border: rgba(255,255,255,.1);
       --text: #f7f8ff;
       --muted: #9ca8c7;
       --primary: #7c5cff;
@@ -67,9 +66,9 @@
       z-index: -10;
       overflow: hidden;
       background:
-        radial-gradient(circle at 15% 20%, rgba(124, 92, 255, .18), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(0, 212, 255, .13), transparent 28%),
-        radial-gradient(circle at 50% 90%, rgba(124, 92, 255, .1), transparent 35%),
+        radial-gradient(circle at 15% 20%, rgba(124,92,255,.18), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(0,212,255,.13), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(124,92,255,.1), transparent 35%),
         #050816;
     }
 
@@ -94,7 +93,7 @@
     .orb.one {
       width: 260px;
       height: 260px;
-      background: rgba(124, 92, 255, .2);
+      background: rgba(124,92,255,.2);
       top: 5%;
       left: 5%;
     }
@@ -102,7 +101,7 @@
     .orb.two {
       width: 220px;
       height: 220px;
-      background: rgba(0, 212, 255, .15);
+      background: rgba(0,212,255,.15);
       right: 5%;
       top: 25%;
       animation-delay: -4s;
@@ -111,19 +110,19 @@
     .orb.three {
       width: 180px;
       height: 180px;
-      background: rgba(124, 92, 255, .16);
+      background: rgba(124,92,255,.16);
       left: 45%;
       bottom: 5%;
       animation-delay: -8s;
     }
 
     @keyframes float {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) scale(1);
+      0%,100% {
+        transform: translate3d(0,0,0) scale(1);
       }
 
       50% {
-        transform: translate3d(30px, -25px, 0) scale(1.08);
+        transform: translate3d(30px,-25px,0) scale(1.08);
       }
     }
 
@@ -136,11 +135,11 @@
     }
 
     .nav {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1180px,calc(100% - 32px));
       margin: 20px auto;
       padding: 14px 18px;
       border: 1px solid var(--border);
-      background: rgba(8, 13, 30, .58);
+      background: rgba(8,13,30,.58);
       backdrop-filter: blur(20px);
       border-radius: 20px;
       display: flex;
@@ -166,7 +165,7 @@
       display: grid;
       place-items: center;
       border-radius: 13px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
       box-shadow: 0 0 30px rgba(124,92,255,.3);
     }
 
@@ -186,7 +185,7 @@
     }
 
     .hero {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1100px,calc(100% - 32px));
       margin: auto;
       text-align: center;
       padding: 80px 0 70px;
@@ -208,33 +207,32 @@
     .badge-dot {
       width: 8px;
       height: 8px;
-      background: #22c55e;
+      background: var(--green);
       border-radius: 50%;
-      box-shadow: 0 0 12px #22c55e;
+      box-shadow: 0 0 12px var(--green);
     }
 
     .hero h1 {
-      font-size: clamp(60px, 12vw, 150px);
+      font-size: clamp(60px,12vw,150px);
       line-height: .95;
       font-weight: 900;
       letter-spacing: -5px;
       background: linear-gradient(
         100deg,
-        #ffffff,
+        #fff,
         #a99aff,
         #00d4ff,
-        #ffffff
+        #fff
       );
       background-size: 300%;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       animation: gradientMove 7s ease infinite;
-      text-shadow: 0 0 80px rgba(124,92,255,.12);
     }
 
     @keyframes gradientMove {
-      0%, 100% {
+      0%,100% {
         background-position: 0%;
       }
 
@@ -274,7 +272,7 @@
 
     .btn-primary {
       color: white;
-      background: linear-gradient(135deg, var(--primary), #5741e8);
+      background: linear-gradient(135deg,var(--primary),#5741e8);
       box-shadow: 0 15px 35px rgba(124,92,255,.25);
     }
 
@@ -287,7 +285,7 @@
     /* FEATURES */
 
     .features {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1100px,calc(100% - 32px));
       margin: 0 auto 100px;
     }
 
@@ -299,7 +297,7 @@
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 18px;
     }
 
@@ -373,7 +371,7 @@
       display: grid;
       place-items: center;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
     }
 
     .status {
@@ -394,7 +392,7 @@
     }
 
     .chat-main {
-      width: min(900px, calc(100% - 28px));
+      width: min(900px,calc(100% - 28px));
       margin: auto;
       flex: 1;
       display: flex;
@@ -443,7 +441,7 @@
     }
 
     .user .bubble {
-      background: linear-gradient(135deg, #6e50ed, #523bc9);
+      background: linear-gradient(135deg,#6e50ed,#523bc9);
       border-bottom-left-radius: 5px;
     }
 
@@ -451,13 +449,6 @@
       background: rgba(255,255,255,.06);
       border: 1px solid var(--border);
       border-bottom-right-radius: 5px;
-    }
-
-    .bubble img {
-      max-width: 100%;
-      border-radius: 14px;
-      margin-top: 10px;
-      display: block;
     }
 
     .welcome {
@@ -473,7 +464,7 @@
       display: grid;
       place-items: center;
       border-radius: 25px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
       font-size: 35px;
       box-shadow: 0 20px 50px rgba(124,92,255,.25);
     }
@@ -543,6 +534,11 @@
       background: rgba(124,92,255,.25);
     }
 
+    .mode.image-disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
     .composer {
       display: flex;
       align-items: flex-end;
@@ -580,7 +576,7 @@
       border: 0;
       border-radius: 15px;
       color: white;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
       font-size: 19px;
     }
 
@@ -618,17 +614,75 @@
       }
     }
 
-    .image-result {
-      max-width: 100%;
-      border-radius: 16px;
-      display: block;
-      margin-top: 5px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.25);
+    /* MODEL LOADER */
+
+    .loader-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(5,8,22,.78);
+      backdrop-filter: blur(15px);
     }
 
-    /* RESPONSIVE */
+    .loader-card {
+      width: min(480px,100%);
+      padding: 30px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: rgba(12,18,38,.95);
+      box-shadow: 0 30px 100px rgba(0,0,0,.45);
+    }
 
-    @media (max-width: 760px) {
+    .loader-icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: linear-gradient(135deg,var(--primary),var(--secondary));
+      font-size: 30px;
+    }
+
+    .loader-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .loader-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .progress {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg,var(--primary),var(--secondary));
+      transition: width .25s;
+    }
+
+    .progress-text {
+      color: #cbd3e2;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    @media (max-width:760px) {
+
       .nav-links {
         display: none;
       }
@@ -654,7 +708,7 @@
       }
 
       .chat-main {
-        width: min(100% - 16px, 900px);
+        width: min(100% - 16px,900px);
       }
 
       .welcome h2 {
@@ -678,6 +732,7 @@
 <section class="landing" id="landing">
 
   <nav class="nav">
+
     <div class="logo">
       <div class="logo-icon">✦</div>
       <span>امیر بات</span>
@@ -691,23 +746,26 @@
     <button class="btn btn-primary" onclick="openChat()">
       شروع گفتگو
     </button>
+
   </nav>
+
 
   <div class="hero">
 
     <div class="badge">
       <span class="badge-dot"></span>
-      هوش مصنوعی آنلاین
+      هوش مصنوعی رایگان
     </div>
 
     <h1>امیر بات</h1>
 
     <p>
       دستیار هوش مصنوعی هوشمند و دوستانه برای گفتگو،
-      یادگیری، ایده‌پردازی و ساخت تصاویر با هوش مصنوعی.
+      یادگیری و ایده‌پردازی؛ بدون نیاز به API و پرداخت هزینه.
     </p>
 
     <div class="hero-buttons">
+
       <button class="btn btn-primary" onclick="openChat()">
         🚀 شروع کار با امیر بات
       </button>
@@ -719,54 +777,92 @@
       >
         مشاهده قابلیت‌ها
       </a>
+
     </div>
 
   </div>
 
+
   <section class="features" id="features">
 
-    <h2 class="features-title">قابلیت‌های امیر بات</h2>
+    <h2 class="features-title">
+      قابلیت‌های امیر بات
+    </h2>
 
     <div class="feature-grid">
 
       <div class="feature">
-        <div class="feature-icon">💬</div>
-        <h3>گفتگوی هوشمند</h3>
+
+        <div class="feature-icon">
+          💬
+        </div>
+
+        <h3>
+          گفتگوی هوشمند
+        </h3>
+
         <p>
-          با امیر بات درباره موضوعات مختلف گفتگو کن و پاسخ‌های
-          هوشمند و طبیعی دریافت کن.
+          با امیر بات درباره موضوعات مختلف گفتگو کن و
+          پاسخ‌های هوشمند دریافت کن.
         </p>
+
       </div>
 
-      <div class="feature">
-        <div class="feature-icon">🎨</div>
-        <h3>ساخت تصویر</h3>
-        <p>
-          ایده خودت را بنویس و با هوش مصنوعی تصویر تولید کن.
-        </p>
-      </div>
 
       <div class="feature">
-        <div class="feature-icon">🌍</div>
-        <h3>چندزبانه</h3>
+
+        <div class="feature-icon">
+          ⚡
+        </div>
+
+        <h3>
+          بدون API
+        </h3>
+
         <p>
-          فارسی، انگلیسی و زبان‌های مختلف را پشتیبانی می‌کند.
+          مدل هوش مصنوعی مستقیماً روی مرورگر دستگاهت اجرا می‌شود
+          و API پولی لازم نیست.
         </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🌍
+        </div>
+
+        <h3>
+          چندزبانه
+        </h3>
+
+        <p>
+          می‌توانی به فارسی، انگلیسی و زبان‌های دیگر با امیر بات
+          گفتگو کنی.
+        </p>
+
       </div>
 
     </div>
 
   </section>
 
+
   <section
     class="features"
     id="about"
     style="text-align:center;"
   >
-    <h2 class="features-title">امیر بات</h2>
+
+    <h2 class="features-title">
+      امیر بات
+    </h2>
+
     <p style="color:var(--muted);line-height:2;">
-      یک رابط مدرن برای استفاده از هوش مصنوعی.
+      یک رابط مدرن برای اجرای هوش مصنوعی مستقیماً در مرورگر.
     </p>
+
   </section>
 
 </section>
@@ -785,11 +881,22 @@
       </div>
 
       <div>
-        <div>امیر بات</div>
-        <div class="status">آنلاین</div>
+
+        <div>
+          امیر بات
+        </div>
+
+        <div
+          class="status"
+          id="status"
+        >
+          در حال آماده‌سازی
+        </div>
+
       </div>
 
     </div>
+
 
     <button
       class="btn btn-secondary"
@@ -804,15 +911,23 @@
 
   <main class="chat-main">
 
-    <div class="messages" id="messages">
+    <div
+      class="messages"
+      id="messages"
+    >
 
-      <div class="welcome" id="welcome">
+      <div
+        class="welcome"
+        id="welcome"
+      >
 
         <div class="welcome-icon">
           ✦
         </div>
 
-        <h2>سلام! من امیر بات هستم 👋</h2>
+        <h2>
+          سلام! من امیر بات هستم 👋
+        </h2>
 
         <p>
           چه کاری می‌تونم برات انجام بدم؟
@@ -841,13 +956,6 @@
             💡 ایده بده
           </button>
 
-          <button
-            class="suggestion"
-            onclick="setMode('image')"
-          >
-            🎨 ساخت تصویر
-          </button>
-
         </div>
 
       </div>
@@ -864,15 +972,14 @@
           <button
             class="mode active"
             id="chatMode"
-            onclick="setMode('chat')"
           >
             💬 چت
           </button>
 
           <button
-            class="mode"
-            id="imageMode"
-            onclick="setMode('image')"
+            class="mode image-disabled"
+            title="در نسخه بدون API هنوز فعال نیست"
+            onclick="imageUnavailable()"
           >
             🎨 تصویر
           </button>
@@ -908,87 +1015,256 @@
 </section>
 
 
-<script>
+<!-- ================= MODEL LOADER ================= -->
+
+<div
+  class="loader-overlay"
+  id="loader"
+>
+
+  <div class="loader-card">
+
+    <div class="loader-icon">
+      ✦
+    </div>
+
+    <h3>
+      آماده‌سازی امیر بات
+    </h3>
+
+    <p id="loaderText">
+      مدل هوش مصنوعی برای اولین بار در حال دانلود است.
+      بعد از دانلود، دفعات بعد سریع‌تر اجرا می‌شود.
+    </p>
+
+    <div class="progress">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+    <div
+      class="progress-text"
+      id="progressText"
+    >
+      در حال شروع...
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= WEBLLM ================= -->
+
+<script type="module">
+
+  import {
+    CreateMLCEngine
+  } from "https://esm.run/@mlc-ai/web-llm";
+
+
+  /*
+    مدل کوچک برای اجرای مستقیم در مرورگر.
+    هیچ API Key لازم ندارد.
+  */
+
+  const MODEL =
+    "Llama-3.2-1B-Instruct-q4f16_1-MLC";
+
+
+  let engine = null;
+
+  let loadingModel = false;
+
+  let messages = [
+    {
+      role: "system",
+      content: `
+تو «امیر بات» هستی.
+
+یک دستیار هوش مصنوعی مهربان، دوستانه و حرفه‌ای.
+
+قوانین:
+- اگر کاربر فارسی صحبت کرد، فارسی جواب بده.
+- اگر انگلیسی صحبت کرد، انگلیسی جواب بده.
+- پاسخ‌ها را واضح و مفید بده.
+- برای دانش‌آموزان، مطالب را ساده و مرحله‌به‌مرحله توضیح بده.
+- اگر سؤال پیچیده بود، آن را به قسمت‌های کوچک تقسیم کن.
+- پاسخ غیرضروری خیلی طولانی نده.
+      `
+    }
+  ];
+
+
+  const landing =
+    document.getElementById("landing");
+
+  const chatPage =
+    document.getElementById("chatPage");
+
+  const messagesBox =
+    document.getElementById("messages");
+
+  const input =
+    document.getElementById("input");
+
+  const sendButton =
+    document.getElementById("sendButton");
+
+  const status =
+    document.getElementById("status");
+
+  const loader =
+    document.getElementById("loader");
+
+  const progressFill =
+    document.getElementById("progressFill");
+
+  const progressText =
+    document.getElementById("progressText");
+
+  const loaderText =
+    document.getElementById("loaderText");
+
 
   /* =========================
-     STATE
+     OPEN CHAT
   ========================= */
 
-  let mode = "chat";
-  let loading = false;
-
-  let messages = [];
-
-
-  /* =========================
-     ELEMENTS
-  ========================= */
-
-  const landing = document.getElementById("landing");
-  const chatPage = document.getElementById("chatPage");
-  const messagesBox = document.getElementById("messages");
-  const input = document.getElementById("input");
-  const sendButton = document.getElementById("sendButton");
-
-
-  /* =========================
-     OPEN / CLOSE CHAT
-  ========================= */
-
-  function openChat() {
+  window.openChat = async function() {
 
     landing.style.display = "none";
-    chatPage.style.display = "flex";
 
-    input.focus();
+    chatPage.style.display = "flex";
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-  }
+
+    if (!engine) {
+      await loadModel();
+    }
+
+    input.focus();
+
+  };
 
 
-  function closeChat() {
+  /* =========================
+     CLOSE CHAT
+  ========================= */
+
+  window.closeChat = function() {
 
     chatPage.style.display = "none";
+
     landing.style.display = "flex";
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-  }
+
+  };
 
 
   /* =========================
-     MODE
+     LOAD MODEL
   ========================= */
 
-  function setMode(newMode) {
+  async function loadModel() {
 
-    mode = newMode;
+    if (loadingModel) return;
 
-    document
-      .getElementById("chatMode")
-      .classList.toggle("active", mode === "chat");
+    loadingModel = true;
 
-    document
-      .getElementById("imageMode")
-      .classList.toggle("active", mode === "image");
+    loader.style.display = "flex";
 
-    if (mode === "image") {
+    status.textContent =
+      "در حال آماده‌سازی...";
 
-      input.placeholder =
-        "توضیح تصویری که می‌خواهی بسازم...";
+    try {
 
-    } else {
+      engine = await CreateMLCEngine(
 
-      input.placeholder =
-        "پیامت را برای امیر بات بنویس...";
+        MODEL,
+
+        {
+
+          initProgressCallback:
+            (progress) => {
+
+              let percent = 0;
+
+              if (
+                typeof progress.progress === "number"
+              ) {
+
+                percent =
+                  Math.round(
+                    progress.progress * 100
+                  );
+
+              }
+
+              progressFill.style.width =
+                percent + "%";
+
+              progressText.textContent =
+                percent + "%";
+
+              if (progress.text) {
+
+                loaderText.textContent =
+                  progress.text;
+
+              }
+
+            }
+
+        }
+
+      );
+
+
+      loader.style.display =
+        "none";
+
+      status.textContent =
+        "آنلاین • بدون API";
+
+      input.disabled = false;
+
+      sendButton.disabled = false;
+
     }
 
-    input.focus();
+    catch(error) {
+
+      console.error(error);
+
+      loader.style.display =
+        "none";
+
+      status.textContent =
+        "خطا در اجرای مدل";
+
+      addMessage(
+        "assistant",
+        "❌ مرورگر یا دستگاهت احتمالاً WebGPU را پشتیبانی نمی‌کند. Chrome یا Edge جدید را امتحان کن."
+      );
+
+    }
+
+    finally {
+
+      loadingModel = false;
+
+    }
+
   }
 
 
@@ -996,24 +1272,22 @@
      SUGGESTION
   ========================= */
 
-  function useSuggestion(text) {
-
-    setMode("chat");
+  window.useSuggestion = function(text) {
 
     input.value = text;
 
-    input.focus();
-
     autoResize();
 
-  }
+    input.focus();
+
+  };
 
 
   /* =========================
      KEYBOARD
   ========================= */
 
-  function handleKey(event) {
+  window.handleKey = function(event) {
 
     if (
       event.key === "Enter" &&
@@ -1023,22 +1297,32 @@
       event.preventDefault();
 
       sendMessage();
+
     }
-  }
+
+  };
 
 
   /* =========================
-     AUTO RESIZE
+     RESIZE
   ========================= */
 
-  input.addEventListener("input", autoResize);
+  input.addEventListener(
+    "input",
+    autoResize
+  );
+
 
   function autoResize() {
 
     input.style.height = "auto";
 
     input.style.height =
-      Math.min(input.scrollHeight, 150) + "px";
+      Math.min(
+        input.scrollHeight,
+        150
+      ) + "px";
+
   }
 
 
@@ -1048,8 +1332,7 @@
 
   function addMessage(
     role,
-    content,
-    image = null
+    content
   ) {
 
     const wrapper =
@@ -1061,32 +1344,16 @@
         ? "user"
         : "assistant");
 
+
     const bubble =
       document.createElement("div");
 
-    bubble.className = "bubble";
+    bubble.className =
+      "bubble";
 
-    if (content) {
+    bubble.textContent =
+      content;
 
-      const text =
-        document.createElement("div");
-
-      text.textContent = content;
-
-      bubble.appendChild(text);
-    }
-
-    if (image) {
-
-      const img =
-        document.createElement("img");
-
-      img.src = image;
-
-      img.className = "image-result";
-
-      bubble.appendChild(img);
-    }
 
     wrapper.appendChild(bubble);
 
@@ -1096,6 +1363,7 @@
       messagesBox.scrollHeight;
 
     return bubble;
+
   }
 
 
@@ -1111,7 +1379,9 @@
     wrapper.className =
       "message assistant";
 
-    wrapper.id = "typingMessage";
+    wrapper.id =
+      "typingMessage";
+
 
     wrapper.innerHTML = `
       <div class="bubble">
@@ -1123,122 +1393,106 @@
       </div>
     `;
 
+
     messagesBox.appendChild(wrapper);
 
     messagesBox.scrollTop =
       messagesBox.scrollHeight;
+
   }
 
 
   function removeTyping() {
 
     const typing =
-      document.getElementById("typingMessage");
+      document.getElementById(
+        "typingMessage"
+      );
 
     if (typing) {
       typing.remove();
     }
+
   }
 
 
   /* =========================
-     SEND
+     SEND MESSAGE
   ========================= */
 
   async function sendMessage() {
 
-    if (loading) return;
+    if (!engine) {
+
+      await loadModel();
+
+      if (!engine) return;
+
+    }
+
 
     const text =
       input.value.trim();
 
     if (!text) return;
 
+
     const welcome =
-      document.getElementById("welcome");
+      document.getElementById(
+        "welcome"
+      );
 
     if (welcome) {
       welcome.remove();
     }
 
+
     input.value = "";
 
     autoResize();
+
 
     addMessage(
       "user",
       text
     );
 
-    loading = true;
-    sendButton.disabled = true;
-
-    if (mode === "image") {
-
-      await generateImage(text);
-
-    } else {
-
-      await sendChat(text);
-    }
-
-    loading = false;
-    sendButton.disabled = false;
-
-    input.focus();
-  }
-
-
-  /* =========================
-     CHAT API
-  ========================= */
-
-  async function sendChat(text) {
 
     messages.push({
       role: "user",
       content: text
     });
 
+
+    sendButton.disabled = true;
+
     showTyping();
+
 
     try {
 
       const response =
-        await fetch("/api/chat", {
+        await engine.chat.completions.create({
 
-          method: "POST",
+          messages: messages,
 
-          headers: {
-            "Content-Type": "application/json"
-          },
+          temperature: 0.7,
 
-          body: JSON.stringify({
-            messages: messages
-          })
+          max_tokens: 500
 
         });
 
 
-      const data =
-        await response.json();
+      const reply =
+        response
+          .choices?.[0]
+          ?.message
+          ?.content
+          ?.trim()
+        || "جوابی دریافت نشد.";
 
 
       removeTyping();
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          data.error ||
-          "خطا در دریافت پاسخ"
-        );
-      }
-
-
-      const reply =
-        data.reply ||
-        "پاسخی دریافت نشد.";
 
 
       addMessage(
@@ -1247,100 +1501,48 @@
       );
 
 
-      /* مهم:
-         پاسخ دستیار را هم
-         داخل تاریخچه ذخیره می‌کنیم
-      */
-
       messages.push({
         role: "assistant",
         content: reply
       });
 
 
-    } catch (error) {
+    }
+
+    catch(error) {
+
+      console.error(error);
 
       removeTyping();
 
       addMessage(
         "assistant",
-        "❌ متأسفانه مشکلی در اتصال به هوش مصنوعی پیش آمد."
+        "❌ در اجرای هوش مصنوعی مشکلی پیش آمد. دوباره امتحان کن."
       );
 
-      console.error(error);
     }
+
+
+    sendButton.disabled = false;
+
+    input.focus();
+
   }
 
 
   /* =========================
-     IMAGE API
+     IMAGE
   ========================= */
 
-  async function generateImage(prompt) {
-
-    showTyping();
-
-    try {
-
-      const response =
-        await fetch("/api/image", {
-
-          method: "POST",
-
-          headers: {
-            "Content-Type": "application/json"
-          },
-
-          body: JSON.stringify({
-            prompt: prompt
-          })
-
-        });
-
-
-      const data =
-        await response.json();
-
-
-      removeTyping();
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          data.error ||
-          "خطا در ساخت تصویر"
-        );
-      }
-
-
-      if (!data.image) {
-
-        throw new Error(
-          "تصویر دریافت نشد"
-        );
-      }
-
+  window.imageUnavailable =
+    function() {
 
       addMessage(
         "assistant",
-        "تصویرت آماده شد ✨",
-        data.image
+        "🎨 قابلیت ساخت تصویر در نسخه کاملاً رایگان و بدون API هنوز فعال نیست. چت هوش مصنوعی همین الان بدون API کار می‌کند."
       );
 
-
-    } catch (error) {
-
-      removeTyping();
-
-      addMessage(
-        "assistant",
-        "❌ ساخت تصویر انجام نشد. تنظیمات API را بررسی کن."
-      );
-
-      console.error(error);
-    }
-  }
+    };
 
 </script>
 
